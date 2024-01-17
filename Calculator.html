@@ -1,0 +1,492 @@
+<title> Calculator </title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Derivative Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Derivative Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Simple Derivative Calculator</h2>
+
+    <label for="inputFunction">Enter a function f(x):</label>
+    <input type="text" id="inputFunction" placeholder="Example: 2*x^3 + sin(x)">
+
+    <button onclick="calculateDerivative()">Calculate Derivative</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateDerivative() {
+            const inputFunction = document.getElementById('inputFunction').value;
+
+            if (inputFunction) {
+                try {
+                    const expression = math.parse(inputFunction);
+                    const derivative = math.derivative(expression, 'x');
+
+                    // Simplify the result
+                    const simplifiedDerivative = math.simplify(derivative);
+
+                    // Display the result
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = `
+                        <p>Original Function: ${inputFunction}</p>
+                        <p>Derivative: ${simplifiedDerivative.toString()}</p>
+                    `;
+                } catch (error) {
+                    alert('Invalid input. Please enter a valid function.');
+                }
+            } else {
+                alert('Please enter a function.');
+            }
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"></script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Derivative Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Advanced Derivative Calculator</h2>
+
+    <label for="inputFunction">Enter a function f(x):</label>
+    <input type="text" id="inputFunction" placeholder="Example: 2*x^3 + sin(x)">
+
+    <button onclick="calculateDerivative()">Calculate Derivative</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateDerivative() {
+            const inputFunction = document.getElementById('inputFunction').value;
+
+            if (inputFunction) {
+                try {
+                    const expression = math.parse(inputFunction);
+                    const derivative = math.derivative(expression, 'x');
+
+                    // Simplify the result
+                    const simplifiedDerivative = math.simplify(derivative);
+
+                    // Display the result
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.innerHTML = `
+                        <p>Original Function: ${inputFunction}</p>
+                        <p>Derivative: ${simplifiedDerivative.toString()}</p>
+                    `;
+                } catch (error) {
+                    alert('Invalid input. Please enter a valid function.');
+                }
+            } else {
+                alert('Please enter a function.');
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigonometric Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Trigonometric Table</h2>
+
+    <label for="angleInput">Enter Angle (in degrees):</label>
+    <input type="number" id="angleInput" placeholder="Enter angle">
+    <button onclick="calculateTrigValues()">Calculate</button>
+
+    <table>
+        <tr>
+            <th>Angle (degrees)</th>
+            <th>Sine</th>
+            <th>Cosine</th>
+            <th>Tangent</th>
+        </tr>
+        <!-- Table rows will be added dynamically -->
+    </table>
+
+    <script>
+        function calculateTrigValues() {
+            const angleInput = document.getElementById('angleInput').value;
+            const angleDegrees = parseFloat(angleInput);
+
+            if (!isNaN(angleDegrees)) {
+                const angleRadians = angleDegrees * (Math.PI / 180);
+                const sineValue = Math.sin(angleRadians).toFixed(4);
+                const cosineValue = Math.cos(angleRadians).toFixed(4);
+                const tangentValue = Math.tan(angleRadians).toFixed(4);
+
+                const table = document.querySelector('table');
+
+                const newRow = table.insertRow(-1);
+                const angleCell = newRow.insertCell(0);
+                const sineCell = newRow.insertCell(1);
+                const cosineCell = newRow.insertCell(2);
+                const tangentCell = newRow.insertCell(3);
+
+                angleCell.textContent = angleDegrees;
+                sineCell.textContent = sineValue;
+                cosineCell.textContent = cosineValue;
+                tangentCell.textContent = tangentValue;
+            } else {
+                alert('Please enter a valid angle.');
+            }
+        }
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Mathematical Calculator</h2>
+
+    <label for="inputExpression">Enter a mathematical expression:</label>
+    <input type="text" id="inputExpression" placeholder="Example: 2*x^3 + sin(x)">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            const inputExpression = document.getElementById('inputExpression').value;
+
+            try {
+                const expression = math.parse(inputExpression);
+
+                // Differentiation
+                const derivative = math.derivative(expression, 'x');
+
+                // Integration
+                const integral = math.integral(expression, 'x');
+
+                // Simplify the results
+                const simplifiedDerivative = math.simplify(derivative);
+                const simplifiedIntegral = math.simplify(integral);
+
+                // Display the results
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <p>Original Expression: ${inputExpression}</p>
+                    <p>Derivative: ${simplifiedDerivative.toString()}</p>
+                    <p>Integral: ${simplifiedIntegral.toString()} + C</p>
+                `;
+            } catch (error) {
+                alert('Invalid input. Please enter a valid mathematical expression.');
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integral Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Integral Calculator</h2>
+
+    <label for="inputFunction">Enter a function f(x):</label>
+    <input type="text" id="inputFunction" placeholder="Example: 2*x^3 + sin(x)">
+
+    <button onclick="calculateIntegral()">Calculate Integral</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateIntegral() {
+            const inputFunction = document.getElementById('inputFunction').value;
+
+            try {
+                const expression = math.parse(inputFunction);
+                const integral = math.integral(expression, 'x');
+
+                // Simplify the result
+                const simplifiedIntegral = math.simplify(integral);
+
+                // Display the result
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <p>Original Function: ${inputFunction}</p>
+                    <p>Integral: ${simplifiedIntegral.toString()} + C</p>
+                `;
+            } catch (error) {
+                alert('Invalid input. Please enter a valid function.');
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.10.0/math.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Scientific Calculator</h2>
+
+    <label for="expression">Enter an expression:</label>
+    <input type="text" id="expression" placeholder="Example: sin(45) + log(10)">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            const expression = document.getElementById('expression').value;
+
+            try {
+                const result = math.evaluate(expression);
+
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <p>Result: ${result}</p>
+                `;
+            } catch (error) {
+                alert('Invalid expression. Please enter a valid mathematical expression.');
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+<font align:"left;">Made by Tanish </font>
+
+
+
